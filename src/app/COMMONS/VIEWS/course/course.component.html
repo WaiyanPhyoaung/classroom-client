@@ -1,0 +1,61 @@
+<h3 class="my-2"><i class="bi bi-people-fill "></i> Student Management</h3>
+<div class="row mt-4">
+    <div class="col-9">
+        <table class="table table-striped table-hover">
+            <thead class="table-primary text-center">
+                <tr>
+                    <th width="5%" scope="col">Id</th>
+                    <th width="14%" scope="col">Name</th>
+                    <th width="14%" scope="col">Fee</th>
+                    <th width="14%" scope="col">StartDate</th>
+                    <th width="8%" scope="col">Duration</th>
+                    <th width="12%" scope="col">Level</th>
+                    <th width="10%" scope="col">Teacher</th>
+                    <th width="20%" scope="col">Subjects</th>
+
+
+
+                </tr>
+            </thead>
+            <tbody class="text-center " *ngFor="let course of courseLists">
+                <tr (click)="getWithId(course)">
+                    <th scope="row">{{course.id}}</th>
+                    <td>{{course.name}}</td>
+                    <td>{{course.fee}}</td>
+                    <td>{{course.startDate | date:'dd-MMM-YY'}}</td>
+                    <td>{{course.duration}}</td>
+                    <td>{{course.level}}</td>
+                    <td>{{course.teacher.name}}</td>
+                    <td>
+                        <p *ngFor="let subject of course.subjects">{{subject.name}}</p>
+
+                    </td>
+
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col-3">
+        <div class="card">
+            <h6 class="card-header "><i class="bi bi-search"></i> Search</h6>
+            <div class="card-body">
+                <form [formGroup]="form">
+                    <input formControlName="name" class="form-control" type="text" placeholder="Search name">
+
+
+                </form>
+            </div>
+            <div class="card-footer">
+                <button (click)="getCourseLists()" class="btn btn-primary d-block w-100">Search</button>
+                <button (click)="open()" class="btn btn-secondary mt-2 d-block w-100">Add New</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="edit_course" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <app-course-edit (onSave)='save($event)' [data]="target"></app-course-edit>
+</div>

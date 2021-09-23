@@ -1,0 +1,25 @@
+<div class="card mt-4 ">
+    <div class="card-header text-center mb-2 ">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png" alt="">
+        <h4 class="card-title d-inline">{{this.course?.name}}</h4>
+    </div>
+    <div class="card-body p-4">
+
+        <h6 class="card-subtitle mb-4 text-muted">Starting Date : {{this.course?.startDate | date:'dd-MMM-YY'}}</h6>
+
+        <h6 class="card-subtitle mb-4 text-muted">Duration : {{this.course?.duration}} Months </h6>
+        <h6 class="card-subtitle mb-4 text-muted">Level : {{this.course?.level}}</h6>
+        <h6 class="card-subtitle mb-4 text-muted">Course Fee : {{this.course?.fee}} </h6>
+        <h6 class="card-subtitle mb-4 text-muted">Teacher : {{this.course?.teacher?.name}} </h6>
+        <h5 class="d-inline text-muted">Subjects : </h5>
+        <div class="d-inline" *ngFor="let sub of this.course?.subjects">
+            <h6 class="mb-2 text-muted d-inline me-2">{{sub?.name}} ,</h6>
+        </div>
+
+    </div>
+    <div class="card-footer">
+        <a href="public" class="btn btn-info me-2"><i class="bi bi-box-arrow-in-up-left "></i> More
+            Class</a>
+        <button class="btn btn-secondary"><i class="bi bi-check-lg "></i> Join Class</button>
+    </div>
+</div>

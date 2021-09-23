@@ -1,0 +1,16 @@
+<div class="home-container">
+
+    <div *ngFor="let course of courseLists" class="card" style="width: 20rem;">
+        <div (click)="seeDetails(course)" class="card-body ">
+
+
+            <div class="card-text mb-2 ">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png" alt="">
+                <h5 class="card-title d-inline">{{course.name}}</h5>
+            </div>
+            <h6 class="card-subtitle my-2 mt-4 text-muted">Level : {{course.level}}</h6>
+            <h6 class="card-subtitle my-2 text-muted">Start Date : {{course.startDate | date:'dd-MMM-YY'}}</h6>
+
+        </div>
+    </div>
+</div>

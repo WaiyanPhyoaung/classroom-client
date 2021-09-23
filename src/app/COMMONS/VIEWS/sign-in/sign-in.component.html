@@ -1,0 +1,35 @@
+<div class="card mx-auto my-5 shadow " style="width: 28rem;">
+    <div class="card-header">
+        <h4>Log-In</h4>
+    </div>
+    <div class="card-body ">
+        <form [formGroup]="form">
+            <h6 class="form-label">Login Email</h6>
+            <div class="input-group mb-3">
+
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
+                <input formControlName="email" type="text" class="form-control " [ngClass]="email.invalid && (email.dirty && email.touched) ? 'is-invalid' : '' " placeholder="Enter login email" aria-label="Username" aria-describedby="basic-addon1">
+                <div *ngIf="email.invalid && (email.dirty && email.touched)" class="invalid-feedback">
+                    <span> * Email is required.</span>
+
+                </div>
+            </div>
+
+            <h6 class="form-label">Password</h6>
+            <div class="input-group mb-3">
+
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-key-fill"></i></span>
+                <input formControlName="password" type="password" class="form-control" [ngClass]="password.invalid && (password.dirty && password.touched) ?  'is-invalid' : ''" placeholder="Enter password" aria-label="Username" aria-describedby="basic-addon1">
+                <div *ngIf="password.invalid && (password.dirty && password.touched)" class="invalid-feedback">
+                    <span> * Passoword is required.</span>
+
+                </div>
+            </div>
+            <h6 *ngIf="!passwordMatch" class="text-danger">Please check again !</h6>
+        </form>
+    </div>
+    <div class="card-footer ">
+        <button [disabled]="!this.form.valid" (click)="signIn()" class="btn btn-secondary">Log-in</button>
+    </div>
+
+</div>
